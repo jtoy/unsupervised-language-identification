@@ -63,7 +63,7 @@ class NaiveBayesClassifier
   def get_posterior_category_probabilities(tokens)
     unnormalized_posterior_probs = (0..@num_categories-1).map do |category|
       p = tokens.map { |token| get_token_probability(token, category) }.reduce(:*) # p(tokens | category)
-      (p || 1) * get_prior_category_probability(category) # p(tokens | category) * p(category)
+      (p || 0) * get_prior_category_probability(category) # p(tokens | category) * p(category)
     end
     normalization = unnormalized_posterior_probs.reduce(:+)
     normalization = 1 if normalization == 0

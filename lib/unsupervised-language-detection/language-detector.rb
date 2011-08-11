@@ -9,7 +9,7 @@ class String
   
   # TODO: Try not normalizing out all non-ASCII characters! Should significantly reduce false positive rate.
   def normalize_tweet
-    self.remove_tweeters.remove_links.remove_hashtags.downcase.gsub(/\s/, " ").gsub(/[^a-z0-9\s]/, "")    
+    self.remove_tweeters.remove_links.remove_hashtags.downcase.gsub(/\s/, " ") #.gsub(/[^a-z0-9\s]/, "")    
   end  
   
   # Remove mentions of other twitter users.

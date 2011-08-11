@@ -1,5 +1,6 @@
+# encoding: utf-8
 require 'test/unit'
-require_relative '../src/language-detector'
+require_relative '../lib/unsupervised-language-detection/language-detector'
 
 class LanguageDetectorTests < Test::Unit::TestCase
   def setup
@@ -14,6 +15,8 @@ class LanguageDetectorTests < Test::Unit::TestCase
     assert_equal "majority", @vowel_detector.classify("iou eao oiee aie tee")
     assert_equal "majority", @vowel_detector.classify("aeou one cdf oeaoi ioeae")    
     assert_equal "minority", @vowel_detector.classify("cdccdb")
-    assert_equal "minority", @vowel_detector.classify("bcbbd cdcbdcb ae")    
+    assert_equal "minority", @vowel_detector.classify("bcbbd cdcbdcb ae")
+    assert_equal "minority", @vowel_detector.classify("你好吗")
+    assert_equal "minority", @vowel_detector.classify("どうも！京都人です。いろいろお得な情報をゲットしては得してます！みんなにも話せるお得情報は配信していこうかなと。よろしく！！") 
   end
 end
